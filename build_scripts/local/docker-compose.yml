@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  model-service:
+    build:
+      context: ../../
+      dockerfile: build_scripts/local/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - API_PORT=8001
+      - RUN_ENV=deploy

@@ -1,0 +1,35 @@
+@BASE_URL=http://localhost:8000/local
+@API_COLLECTION=default
+@default_models=< src/data/static/default/models.json
+
+###
+POST {{BASE_URL}}/models/{{API_COLLECTION}}/create HTTP/1.1
+Content-Type: application/json
+
+{{default_models}}
+
+###
+POST {{BASE_URL}}/models/{{API_COLLECTION}}/inference HTTP/1.1
+Content-Type: application/json
+
+{
+	"path": "/users/info",
+	"method": "GET",
+	"query_params": [
+		{
+			"name": "with_extra_data",
+			"value": true
+		},
+		{
+			"name": "sababababa",
+			"value": "hsdakh"
+		},
+	],
+	"headers": [
+		{
+			"name": "Authorization",
+			"value": "Bearer 56ee9b7a-da8e-45a1-aade-a57761b912c4"
+		}
+	],
+	"body": []
+}
